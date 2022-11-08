@@ -1,9 +1,11 @@
 ﻿@model IEnumerable<Expense_Tracker.Models.Category>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["PageTitle"] = "Categories";
+    ViewData["PageActionText"] = "+ New Categry";
+    ViewData["PageActionUrl"] = "/Category/AddOrEdit";
 }
-
+ 
 <div class="row">
     <div class="col-md-7">
         <ejs-grid id="categories" dataSource="@Model" gridLines="None"

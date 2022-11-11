@@ -16,37 +16,35 @@ namespace Expense_Tracker.Controllers
 
         public async Task<ActionResult> Index()
         {
-            var startDate = DateTime.Today.AddDays(-6);
-            var endDate = DateTime.Today;
+			//Last 7 Days
+			var startDate = DateTime.Today.AddDays(-6);
+			var endDate = DateTime.Today;
 
-            //Last 7 Days
-            var selectedTransactions = await _context.Transactions
-                .Include(x => x.Category)
-                .Where(y => y.Date >= startDate && y.Date <= endDate)
-                .ToListAsync();
+			List<Transaction> selectedTransactions = await _context.Transactions
+				.Include(x => x.Category)
+				.Where(y => y.Date >= startDate && y.Date <= endDate)
+				.ToListAsync();
 
-            //Total Income
-            var totalIncome = selectedTransactions
-                .Where(i => i.Category.Type == "Income")
-                .Sum(j => j.Amount);
-            ViewBag.TotalIncome = totalIncome.ToString("C0");
+			//Total Income
+			var totalIncome = selectedTransactions
+				.Where(i => i.Category.Type == "Income")
+				.Sum(j => j.Amount);
+			ViewBag.TotalIncome = totalIncome.ToString("C0");
 
 			//Total Expense
 			var totalExpense = selectedTransactions
-				.Where(i => i.Category.Type == "Income")
+				.Where(i => i.Category.Type == "Expense")
 				.Sum(j => j.Amount);
-			ViewBag.TotalIncome = totalExpense.ToString("C0");
+			ViewBag.TotalExpense = totalExpense.ToString("C0");
 
-            //Balance
-            var balance = totalIncome - totalExpense;
-            var culture = CultureInfo.CreateSpecificCulture("en-US");
+			//Balance
+			var balance = totalIncome - totalExpense;
+			CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+			culture.NumberFormat.CurrencyNegativePattern = 1;
+			ViewBag.Balance = String.Format(culture, "{0:C0}", balance);
 
-            culture.NumberFormat.CurrencyNegativePattern = 1;
-
-            ViewBag.Balance = String.Format(culture, "{0:C0}", balance);
-
-            //Doughnut Chart - Expense By Category
-            ViewBag.DoughnutChartData = selectedTransactions
+			//Doughnut Chart - Expense By Category
+			ViewBag.DoughnutChartData = selectedTransactions
                 .Where(i => i.Category.Type == "Expense")
                 .GroupBy(j => j.Category.CategoryId)
                 .Select(k => new

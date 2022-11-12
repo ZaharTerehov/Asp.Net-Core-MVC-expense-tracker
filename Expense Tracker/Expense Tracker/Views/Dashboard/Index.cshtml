@@ -111,3 +111,24 @@
     </div>
 </div>
 
+@*Recent Transactions and More*@
+<div class="row">
+    <div class="col-md-6">
+        <div class="widget">
+            <div class="p-4">
+                <h5 class="fw-bold">Recent Transactions</h5>
+            </div>
+            <div class="px-4 pb-4">
+                <ejs-grid id="recent-transactions"
+                dataSource="@ViewBag.RecentTransactions">
+                <e-grid-columns>
+                    <e-grid-column headerText="Category" field="CategoryTitleWithIcon"></e-grid-column>
+                    <e-grid-column headerText="Date" field="Date" width="110px"
+                        type="date" format="MMM-dd-yy" textAlign="Left"></e-grid-column>
+                    <e-grid-column headerText="Amount" field="FormattedAmount" textAlign="Right" width="110px"></e-grid-column>
+                    </e-grid-columns>
+                </ejs-grid>
+            </div>
+        </div>
+    </div>
+</div>

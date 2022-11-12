@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vtT7w8MU6epw0snuATRI6HaqZIM4U/8Fk012XYKa/94=",
+  "Hash": "ewVgBQteoDQFBrhUGGFHQtG5XiqZz/qRXU1/983/S0c=",
   "Source": "Expense Tracker",
   "BasePath": "_content/Expense Tracker",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\ASP.NET Projects\\Asp.Net-Core-MVC-expense-tracker\\Expense Tracker\\Expense Tracker\\wwwroot\\profile.jpg",
+      "SourceId": "Expense Tracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP.NET Projects\\Asp.Net-Core-MVC-expense-tracker\\Expense Tracker\\Expense Tracker\\wwwroot\\",
+      "BasePath": "_content/Expense Tracker",
+      "RelativePath": "profile.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\profile.jpg"
     }
   ]
 }
